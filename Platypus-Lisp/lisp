@@ -1,0 +1,146 @@
+;; Each order can only have one go. Pizza or Pasta or Pizza and Pasta. To add another Item to order Needs to create another order
+;;Parent Class definition
+(defclass order ()
+((qty
+		:initarg :qty
+		:initform 0
+		:accessor quantity)
+(type
+        :initarg :type
+        :accessor type
+        :initform "None")
+(amount
+        :initarg :amount
+        :reader amount
+        :initform 0)
+))
+;;Child class pizza
+(defclass pizza(order)(
+(uni-price
+        :initarg :unit-price
+        :accessor unit-price
+        :initform 12)
+(discount-one
+        :initarg :discount-one
+        :accessor pizza-discount-one
+        :initform 1)
+(discount-two
+        :initarg :discount-two
+        :accessor pizza-discount-two
+        :initform 0.91666667)
+(discount-multi
+        :initarg :discount-multi
+        :accessor pizza-discount-multi
+        :initform 0.83333333)
+(generic-offer-type
+        :initarg :generic-offer-type
+        :initform "Garlic Bread"
+        :accessor pizza-offer-generic)
+(generic-offer-qty
+        :initarg :generic-offer-qty
+        :initform  0
+        :accessor pizza-offer-qty)
+(pizza-amount
+
+        :initarg :pizza-amount
+        :reader calc-pizza-amount
+        :accessor val-pizza-amount
+        :initform  0)
+))
+;;Child class pasta
+(defclass pasta(order)(
+(uni-price
+        :initarg :unit-price
+        :accessor unit-price
+        :initform 8)
+(discount-one
+        :initarg :discount-one
+        :accessor pasta-discount-one
+        :initform 1)
+(discount-two
+        :initarg :discount-two
+        :accessor pasta-discount-two
+        :initform 0.9375)
+(discount-multi
+        :initarg :discount-multi
+        :accessor pasta-discount-multi
+        :initform 0.875)
+(generic-offer-type
+        :initarg :generic-offe-type
+        :initform "Soft Drink"
+        :accessor pasta-offer-generic)
+(generic-offer-qty
+        :initarg :generic-offer-qty
+        :initform 0
+        :accessor pasta-offer-qty)
+(pasta-amount
+        :initarg :pasta-amount
+        :reader pasta-amount
+        :accessor val-pasta-amount
+        :initform 0)
+))
+
+
+;;Pizza Cost
+(defmethod calc-pizza-amount ((object pizza))
+    (if(= *order-qty* 1)
+        (setq disc (pizza-discount-one *pizza*)))
+    (if(= *order-qty* 2)
+        (setq disc (pizza-discount-two *pizza*)))
+    (if(> *order-qty* 2)
+        (setq disc (pizza-discount-multi *pizza*)))
+
+	(setf (val-pizza-amount *pizza*) (* (* (unit-price *pizza*) disc) *order-qty*))
+)
+
+;;Pasta Cost
+(defmethod calc-pasta-amount ((object pasta))
+    (if(= *order-qty* 1)
+        (setq disc (pasta-discount-one *pasta*)))
+    (if(= *order-qty* 2)
+        (setq disc (pasta-discount-two *pasta*)))
+    (if(> *order-qty* 2)
+        (setq disc (pasta-discount-multi *pasta*)))
+
+	(setf (val-pasta-amount *pasta*) (* (* (unit-price *pasta*) disc) *order-qty*))
+)
+;;Platypus Terminal
+(defun  make-order()
+    ;;Order ID
+    (print "Order ID :")
+	(defvar *order-id* (read))
+
+
+	;;Pizza order
+	(print "Number of Pizzas:")
+	;;Order Quantity
+	(print "Pizza>>Order Quantity :")
+	(defvar *order-qty* (read))
+	;;adding pizzas to order
+	(defparameter *pizza* (make-instance 'pizza :type "pizza" :qty *order-qty* :generic-offer-qty (/ *order-qty* 3.0)))
+	;;Price Processing
+	(calc-pizza-amount *pizza*)
+
+	;;Pasta order
+	(print "Number of Pastas:")
+	;;Order Quantity
+	(print "Pasta>>Order Quantity :")
+	(defvar *order-qty* (read))
+	;;adding Pasta to order
+    (defparameter *pasta* (make-instance 'pasta :type "pasta" :qty *order-qty* :generic-offer-qty (/ *order-qty* 3.0)))
+    ;;Price Processing
+    (calc-pasta-amount *pasta*)
+
+
+
+
+)
+
+
+
+
+(make-order)
+
+;;Pasta Cost
+(format t "Pasta cost is ~d~%" (val-pasta-amount *pasta*))
+(format t "Pizza cost is ~d~%" (val-pizza-amount *pizza*))
