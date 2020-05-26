@@ -33,11 +33,9 @@ public class Session {
 				System.exit(-19);
 			}
 					//Update the quanity
-					//System.out.println(((HashMap<String, Object>)((HashMap<String, Object>)sessionToken.get("session")).get("offers")).get("pizza"));		
+					
 			
 					int curQty = (Integer) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).get(orderType.toLowerCase());
-					
-//					System.out.println(((HashMap<String, Object>)sessionToken.get("session")).get("qty"));
 					((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).put(orderType.toLowerCase(),curQty + qty);
 					
 					//Update the cost
@@ -45,9 +43,10 @@ public class Session {
 					((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("cost")).put(orderType.toLowerCase(),curCost + objOrder.getAmount());
 					
 					//Update offers
-					int curOffers = ((Integer) ((HashMap<String,Object>) ((HashMap<String,Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).get("qty"));
-					((HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).put("qty", curOffers + objOrder.getOffers());
+					//int curOffers = ((Integer) ((HashMap<String,Object>) ((HashMap<String,Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).get("qty"));
+					//((HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).put("qty", (int)curOffers + (int)objOrder.getOffers());
 					
+					genericOffers(orderType);
 					specialOffers();
 				}
 			}
@@ -146,6 +145,11 @@ public class Session {
 	public HashMap<String, Object> readSession(){	
 		return sessionToken;
 		
+	}
+	@SuppressWarnings("unchecked")
+	private void genericOffers(String orderType) {
+		int curQty = (Integer) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).get(orderType.toLowerCase());
+		((HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).put("qty", (int)(curQty/3));
 	}
 	
 	
