@@ -33,7 +33,7 @@ public class Session {
 				System.exit(-19);
 			}
 					//Update the quanity
-					System.out.println(((HashMap<String, Object>)((HashMap<String, Object>)sessionToken.get("session")).get("offers")).get("pizza"));		
+					//System.out.println(((HashMap<String, Object>)((HashMap<String, Object>)sessionToken.get("session")).get("offers")).get("pizza"));		
 			
 					int curQty = (Integer) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).get(orderType.toLowerCase());
 					
@@ -45,18 +45,8 @@ public class Session {
 					((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("cost")).put(orderType.toLowerCase(),curCost + objOrder.getAmount());
 					
 					//Update offers
-					int curOffers = ((Integer) ((HashMap<String,Object>) ((HashMap<String, Object>) sessionToken.get("offers")).get(orderType.toLowerCase())).get("qty"));
-//					((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).S
-//					for(Object o: )
-					
-//					System.out.println(orderType.toLowerCase());
-//					System.out.println(sessionToken);
-//					System.out.println(sessionToken.keySet());
-//					System.out.println(sessionToken.get("session"));
-//					System.out.println(((HashMap<String, Object>)sessionToken.get(sessionToken.get("session"))));
-//					System.out.println(((HashMap<String, Object>)sessionToken.get(sessionToken.get("session"))).get("pasta"));
-//					System.out.println(((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).put(orderType.toLowerCase(),curOffers + objOrder.getOffers()));
-					
+					int curOffers = ((Integer) ((HashMap<String,Object>) ((HashMap<String,Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).get("qty"));
+					((HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).put("qty", curOffers + objOrder.getOffers());
 					
 					
 				}
