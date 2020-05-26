@@ -48,7 +48,7 @@ public class Session {
 					int curOffers = ((Integer) ((HashMap<String,Object>) ((HashMap<String,Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).get("qty"));
 					((HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("offers")).get(orderType.toLowerCase())).put("qty", curOffers + objOrder.getOffers());
 					
-					
+					specialOffers();
 				}
 			}
 				
@@ -140,7 +140,7 @@ public class Session {
 	private void specialOffers() {
 		int curPizzaQty=(int) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).get("pizza");
 		int curPastaQty=(int) ((HashMap<String, Object>) ((HashMap<String, Object>) sessionToken.get("session")).get("qty")).get("pasta");
-		( (HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String,Object>) sessionToken.get("seesion")).get("offers")).get("specialOffers")).put("qty",(int)(Math.min(curPastaQty,curPizzaQty))/3);
+		( (HashMap<String, Object>) ((HashMap<String, Object>) ((HashMap<String,Object>) sessionToken.get("session")).get("offers")).get("specialOffers")).put("qty",(int)(Math.min(curPastaQty,curPizzaQty))/3);
 	}
 	
 	public HashMap<String, Object> readSession(){	
