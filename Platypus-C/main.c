@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <strings.h>
 
-
-
 //float calcAmount(struct ItemMetaData item, int qty);
 float printReciept(char orderId, int pizzaQty, float pizzaValue, int pastaQty, float pastaValue, int terminalWidth);
 struct Order{
@@ -16,8 +14,8 @@ struct Order{
 
 };
 
-
 struct ItemMetaData{
+    char type;
     char offerType;
     float discForOne;
     float discForTwo;
@@ -44,7 +42,7 @@ float calcAmount(struct ItemMetaData item, int qty){
 
 void initItems(){
     //For Pizza
-
+    pizza.type = "pizza";
     pizza.offerType = "Garlic Bread";
     pizza.discForOne =1.0;
     pizza.discForTwo =0.91666667;
@@ -53,7 +51,7 @@ void initItems(){
     pizza.offerReq = 3;
 
     //For Pasta
-
+    pasta.type = "pasta";
     pasta.offerType = "Soft Drink";
     pasta.discForOne =1.0;
     pasta.discForTwo =0.9375;
@@ -71,6 +69,8 @@ struct Order makeOrder(struct ItemMetaData item, char orderId, int qty){
     thisOrder.offerQty=(int)qty/3;
     thisOrder.offerType=item.offerType;
     thisOrder.qty=qty;
+    thisOrder.orderType=item.type;
+    printf("Make Order qty %d", thisOrder.qty);
     return thisOrder;
 }
 
@@ -139,11 +139,12 @@ int main(int argc, int *argv[])
             int orderQty;
             printf("Order Quantity :");
             scanf("%d", &orderQty);
-
+            printf("Order Quantity ----> %d", orderQty);
             //Process Order
             orderArray = malloc(maxOrderCount*sizeof(struct Order));
 
             orderArray[orderIndex] = makeOrder(orderType, orderId, orderQty);
+            printf("\n \n Order processing qty %d \n \n",orderArray[orderIndex].qty);
 
             //orderIndex=orderIndex+1;
             orderIndex++;
@@ -162,16 +163,17 @@ int main(int argc, int *argv[])
         int pizzaQty=0;
         float pizzaAmount=0.0;
         float pastaAmount=0.0;
+        printf("HERE %s", orderArray[0].orderType);
         for (i = 0; i < orderIndex; i++) {
-                printf(orderArray[i].orderType);
-                /*if (strcmp(orderArray[i].orderType,"pasta")){
-                    pastaQty+=orderArray[i].qty;
-                    pastaAmount+=orderArray[i].amount;
+                printf("HERE %s", orderArray[0].orderType);
+                if (strcmp(orderArray[i].orderType,"pasta")){
+                    //pastaQty+=orderArray[i].qty;
+                    //pastaAmount+=orderArray[i].amount;
                 }
-                if (strcmp(orderArray[i].orderType,"pizza")){
-                    pizzaQty+=orderArray[i].qty;
-                    pizzaAmount+=orderArray[i].amount;
-                } */
+               // if (strcmp(orderArray[i].orderType,"pizza")){
+                    //pizzaQty+=orderArray[i].qty;
+                    //pizzaAmount+=orderArray[i].amount;
+                //}
 
         }
         free(orderArray);
