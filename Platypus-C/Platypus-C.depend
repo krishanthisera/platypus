@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1590588329 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\main.c
+1590594255 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
@@ -13,4 +13,9 @@
 	<stdio.h>
 	<stdlib.h>
 	"structs.h"
+
+1590593010 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

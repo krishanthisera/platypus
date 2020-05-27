@@ -5,9 +5,9 @@
 //float calcAmount(struct ItemMetaData item, int qty);
 float printReciept(char orderId, int pizzaQty, float pizzaValue, int pastaQty, float pastaValue, int terminalWidth);
 struct Order{
-    char orderID;
-    char orderType;
-    char offerType;
+    char *orderID;
+    char *orderType;
+    char *offerType;
     int offerQty;
     int qty;
     float amount;
@@ -15,8 +15,8 @@ struct Order{
 };
 
 struct ItemMetaData{
-    char type;
-    char offerType;
+    char *type;
+    char *offerType;
     float discForOne;
     float discForTwo;
     float discForMulti;
@@ -26,6 +26,7 @@ struct ItemMetaData{
 
     struct ItemMetaData pizza;
     struct ItemMetaData pasta;
+    struct ItemMetaData bread;
 
 float calcAmount(struct ItemMetaData item, int qty){
     if (qty == 1)
@@ -58,6 +59,9 @@ void initItems(){
     pasta.discForMulti=0.875;
     pasta.unitPrice=8.0;
     pasta.offerReq = 3;
+
+    bread.offerType="shhs";
+    printf("%s",bread.offerType);
 }
 
 struct Order *orderArray;
@@ -70,7 +74,7 @@ struct Order makeOrder(struct ItemMetaData item, char orderId, int qty){
     thisOrder.offerType=item.offerType;
     thisOrder.qty=qty;
     thisOrder.orderType=item.type;
-    printf("Make Order qty %d", thisOrder.qty);
+    //printf("Make Order qty %s", item.type);
     return thisOrder;
 }
 
@@ -124,13 +128,13 @@ int main(int argc, int *argv[])
             }
             //Type of order
             int orderTypeIn;
-            struct ItemMetaData orderType;
+            struct ItemMetaData orderTypeMetaData;
             printf("Order Type - Pizza [1]Pasta [9] :");
             scanf("%d", &orderTypeIn);
             if (orderTypeIn = 1)
-                orderType = pizza;
+                orderTypeMetaData = pizza;
             else if (orderTypeIn = 9)
-                orderType = pasta;
+                orderTypeMetaData = pasta;
             else{
                 perror("Invalid Order Type");
                 continue;
@@ -141,11 +145,11 @@ int main(int argc, int *argv[])
             scanf("%d", &orderQty);
             printf("Order Quantity ----> %d", orderQty);
             //Process Order
-            orderArray = malloc(maxOrderCount*sizeof(struct Order));
-
-            orderArray[orderIndex] = makeOrder(orderType, orderId, orderQty);
-            printf("\n \n Order processing qty %d \n \n",orderArray[orderIndex].qty);
-
+            size_t n =5;
+            orderArray = malloc(n*sizeof(struct Order));
+            //printf("%s",orderTypeMetaData.type);
+            orderArray[orderIndex] = makeOrder(orderTypeMetaData, orderId, orderQty);
+            //orderArray = realloc(orderArray, sizeof *orderArray);
             //orderIndex=orderIndex+1;
             orderIndex++;
             orderCounter++;
@@ -163,17 +167,19 @@ int main(int argc, int *argv[])
         int pizzaQty=0;
         float pizzaAmount=0.0;
         float pastaAmount=0.0;
-        printf("HERE %s", orderArray[0].orderType);
+        printf("HERE %d", orderIndex);
+        //printf("HERE %s", orderArray[0].orderType);
         for (i = 0; i < orderIndex; i++) {
-                printf("HERE %s", orderArray[0].orderType);
+
                 if (strcmp(orderArray[i].orderType,"pasta")){
-                    //pastaQty+=orderArray[i].qty;
-                    //pastaAmount+=orderArray[i].amount;
+                    pastaQty+=orderArray[i].qty;
+                    pastaAmount+=orderArray[i].amount;
                 }
-               // if (strcmp(orderArray[i].orderType,"pizza")){
-                    //pizzaQty+=orderArray[i].qty;
-                    //pizzaAmount+=orderArray[i].amount;
-                //}
+                if (strcmp(orderArray[i].orderType,"pizza")){
+                    printf("\n Qunatity ->>>>>>%d ", orderArray[i].qty);
+                    pizzaQty+=orderArray[i].qty;
+                    pizzaAmount+=orderArray[i].amount;
+                }
 
         }
         free(orderArray);
@@ -196,13 +202,13 @@ float printReciept(char orderId, int pizzaQty, float pizzaValue, int pastaQty, f
     printf(charactor);
     printf("\n Quantity of Pasta Order :%d", pastaQty);
     printf("\n Value of Pasta Order :%f", pastaValue);
-    printf("\n Eligible generic Offers :%f", pasta.offerType);
+    printf("\n Eligible generic Offers :%s", pasta.offerType);
     printf("\n This order deserve :%d ", (int)(pastaQty/pasta.offerReq));
     //memset(charactor,'-',terminalWidth);
     //printf(charactor);
     printf("\n Quantity of Pizza Order :%d", pizzaQty);
     printf("\n Value of Pizza Order :%f", pizzaValue);
-    printf("\n Eligible generic Offers :%f", pizza.offerType);
+    printf("\n Eligible generic Offers :%s", pizza.offerType);
     printf("\n This order deserve :%d ", (int)(pizzaQty/pizza.offerReq));
     //memset(charactor,'-',terminalWidth);
     //printf(charactor);
