@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1590643124 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\main.c
+1590647840 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
-	"functions.h"
+	"headers.h"
 
-1590644286 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\functions.h
+1590647439 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\functions.h
 
 1590499896 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\structs.h
 
@@ -20,6 +20,11 @@
 	<stdlib.h>
 	<string.h>
 
-1590644326 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\misc.c
-	"functions.h"
+1590647840 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\misc.c
+	"headers.h"
+
+1590647840 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\processing.c
+	"headers.h"
+
+1590647840 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\headers.h
 
