@@ -1,0 +1,39 @@
+package restuarentPlatypus;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PlatypusTerminal {
+	public static void main(String[] args) {
+		Session session = new Session("Krishan");
+		StdIn input = new StdIn(50);
+		StdOut out = new StdOut(40);
+		
+		out.easyPrint("welcome");
+		do {
+			
+			do {
+				session.makeOrder(input.getInput("Order Type 1 for Pasta 9 for Pizza").toString(), (int)input.getInput("How many of them (Quantity)"));
+				
+				
+			}
+			while(input.getInput("Do you want to Add another Item [Yy][Nn]").toString().equalsIgnoreCase("Y"));
+			out.orderSumary(session.readSession());
+			
+			
+			}
+			while(input.getInput("Do you want to Continue[Yy][Nn]").toString().equalsIgnoreCase("Y"));
+		out.easyPrint("bye");
+		
+		
+		
+		
+		
+
+		
+		
+	}
+	
+}
+
+

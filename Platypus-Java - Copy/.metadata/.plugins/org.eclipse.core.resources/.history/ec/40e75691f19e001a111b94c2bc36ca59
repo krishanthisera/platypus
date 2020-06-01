@@ -1,0 +1,19 @@
+package restuarentPlatypus;
+
+import java.util.HashMap;
+
+public class PlatypusTerminal {
+	public static void main(String[] args) {
+		Session s = new Session("Krishan");
+		s.makeOrder("pasta", 4);
+		StdOut out = new StdOut(40);
+		out.orderSumary(s.readSession());
+		
+		
+		
+		
+	}
+	
+}
+
+

@@ -1,0 +1,6 @@
+package restuarentPlatypus;
+
+public interface Order {
+	float getAmount();
+	float getOffers();
+}

@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1590977879 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	"headers.h"
+	<stdio.h>
+
+1590647439 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\functions.h
+
+1590499896 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\structs.h
+
+1590538977 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\functions.c
+	"functions.h"
+	<stdio.h>
+	<stdlib.h>
+	"structs.h"
+
+1590593010 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1590647840 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\misc.c
+	"headers.h"
+
+1590976482 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\processing.c
+	"headers.h"
+
+1590977604 c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\headers.h
+
+1590977711 source:c:\users\krishann\onedrive\masters\assaignment\11. comparativeprogramming\assesment 02\platypus-c\reciept.c
+	"headers.h"
+

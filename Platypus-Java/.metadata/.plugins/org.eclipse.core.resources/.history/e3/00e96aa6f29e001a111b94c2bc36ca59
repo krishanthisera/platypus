@@ -1,0 +1,43 @@
+package restuarentPlatypus;
+
+import java.util.HashMap;
+
+public class StdOut {
+	
+	private int terminalWidth;
+	
+	public StdOut(int terminalWidth) {
+		this.terminalWidth = terminalWidth;
+	}
+	
+	public void orderSumary(HashMap<String, Object> session) {
+			
+			HashMap<String, Object> sessionDescription = session.get("session");
+			easyPrint(terminalWidth, "#");
+			easyPrint("Session ID", sessionDescription.get("ID"));
+			easyPrint(terminalWidth, "#");
+			easyPrint(terminalWidth, ">");
+			easyPrint("Quantity of Pasta", ((HashMap<String, Object>) sessionDescription.get("qty")).get("pasta"));
+			easyPrint("Cost of Pasta(s)", ((HashMap<String, Object>) sessionDescription.get("cost")).get("pasta"));
+			easyPrint("General offers offers for this Pasta order", ((HashMap<String, Object>) ((HashMap<String, Object>) sessionDescription.get("offers")).get("pasta")).get("item"));
+			easyPrint("This Pasta order deserve", ((HashMap<String, Object>) ((HashMap<String, Object>) sessionDescription.get("offers")).get("pasta")).get("qty"));
+			easyPrint(terminalWidth, "<");
+			easyPrint(terminalWidth, ">");
+			easyPrint("Quantity of Pizza", ((HashMap<String, Object>) sessionDescription.get("qty")).get("pizza"));
+			easyPrint("Cost of Pizza(s)", ((HashMap<String, Object>) sessionDescription.get("cost")).get("pizza"));
+			easyPrint("General offers offers for this Pizza order", ((HashMap<String, Object>) ((HashMap<String, Object>) sessionDescription.get("offers")).get("pizza")).get("item"));
+			easyPrint("This Pizza order deserve", ((HashMap<String, Object>) ((HashMap<String, Object>) sessionDescription.get("offers")).get("pizza")).get("qty"));
+			easyPrint(terminalWidth, "<");
+		}
+		
+		private void easyPrint(String desc , Object val) {
+			System.out.println(desc + ": " + (String)val);
+		}
+		private void easyPrint(int itr, String charactor) {
+			StringBuilder charSet = new StringBuilder();
+		    for(int i = 0; i < itr; i++){
+		        charSet.append(charactor);
+		    }
+			System.out.println(charSet.toString());
+		}
+}

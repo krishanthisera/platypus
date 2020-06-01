@@ -1,0 +1,79 @@
+{
+  "cards": [
+    {
+      "type": "TYPE_INFO",
+      "title": "Guest Information",
+      "description": "View and edit guest information"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Streaming TV",
+      "description": "Watch live streaming TV around the world."
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Movie & Music Library",
+      "description": "Watch your favorite movies and listen to your favorite music."
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Netflix & YouTube ",
+      "description": "Watch your favorite videos and movies on Netflix and YouTube."
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Restaurant Menu",
+      "description": "View restaurant menus and order your favorite meals"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Placing Orders",
+      "description": "Place your orders right from your room"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Chromecast",
+      "description": "Stream your favorite movies and music from your device to your TV."
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Hotel Services",
+      "description": "View and book hotel services"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Advertising",
+      "description": "Advertise with us to expand your brand recognition "
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Flight Information",
+      "description": "Check your flight status and information"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Real-time Weather",
+      "description": "Check real-time local weather right from your room "
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Real-time Bill Information",
+      "description": "Check and pay your bill right from your room"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Real-time Messaging, Alerts",
+      "description": "Send and receive real-time messages and alerts"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "World Clock",
+      "description": "Check the time anywhere in the world"
+    },
+    {
+      "type": "TYPE_INFO",
+      "title": "Schedule Wake-Up Call",
+      "description": "Schedule wake-up calls so you won't miss your important events."
+    }
+  ]
+}
