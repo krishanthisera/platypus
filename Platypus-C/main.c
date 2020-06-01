@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <strings.h>
 #include "headers.h"
-
+#include <stdio.h>
 
 //Main Function
 int main(int argc, size_t *argv[])
