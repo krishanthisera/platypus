@@ -1,0 +1,1 @@
+{"main": {"price": {"pizza": 12, "pasta": 8}, "for-1-discount": {"pizza": 1, "pasta": 1}, "for-2-discount": {"pizza": 0.91666667, "pasta": 0.9375}, "for-N-discount": {"pizza": 0.83333333, "pasta": 0.875}}, "offers": {"3-from-2-offer": {"offer": "Baklava"}, "for-3-offer": {"pizza": {"minQty": 3, "item": "Garlic Bread"}, "pasta": {"minQty": 3, "item": "Soft Drink"}}}}

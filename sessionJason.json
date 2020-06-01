@@ -1,0 +1,27 @@
+{
+  "session": {
+    "ID": "111",
+    "qty": {
+      "pasta": 0,
+      "pizza": 0
+    },
+    "cost": {
+      "pasta": 0,
+      "pizza": 0
+    },
+    "offers": {
+      "pizza": {
+        "item": "Garlic Bread",
+        "qty": 0
+      },
+      "pasta": {
+        "item": "Soft Drink",
+        "qty": 0
+      },
+      "specialOffers": {
+        "item": "Baklava",
+        "qty": 0
+      }
+    }
+  }
+}
