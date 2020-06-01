@@ -1,5 +1,8 @@
+/*Find this REPO on GIT : https://github.com/krishanthisera/platypus.git */
 //Maximum number of orders that system can handle.
 #define MAX 10
+
+
 
 int maxOrderCount;
 /*------------------------------------- Structures-------------------------------------*/
@@ -25,8 +28,10 @@ struct ItemMetaData{
     struct ItemMetaData pizza;
     struct ItemMetaData pasta;
 
-    //Miscellaneous Items, Used in Special offers in this context
+    //Miscellaneous Item, Used in Special offers in this context
     struct ItemMetaData misc_1;
+    //Miscellaneous Item, used in Item not defined contexts
+    struct ItemMetaData misc_NULL;
 
     struct Order orderArray[MAX];
 

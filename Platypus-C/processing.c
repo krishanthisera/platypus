@@ -41,6 +41,14 @@ void initItems(){
     misc_1.discForMulti=0;
     misc_1.unitPrice=0;
     misc_1.offerReq =0;
+
+    misc_NULL.type = "None";
+    misc_NULL.offerType = "None";
+    misc_NULL.discForOne =0;
+    misc_NULL.discForTwo =0;
+    misc_NULL.discForMulti=0;
+    misc_NULL.unitPrice=0;
+    misc_NULL.offerReq =0;
 }
 
 //Make Order - Adding items
