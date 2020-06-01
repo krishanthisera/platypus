@@ -1,2 +1,0 @@
-eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="sessionToken"/>\r\n    <expression enabled\="true" text\="sessionToken.get(&quot;session&quot;)"/>\r\n    <expression enabled\="true" text\="((HashMap&lt;String, Object&gt;)((HashMap&lt;String, Object&gt;)sessionToken.get(&quot;session&quot;)).get(&quot;offers&quot;)).get(&quot;pizza&quot;)"/>\r\n</watchExpressions>\r\n
