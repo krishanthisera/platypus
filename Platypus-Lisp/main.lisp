@@ -158,7 +158,8 @@
     (defvar *is-pasta* 0)
 
     (print "Order Type Pizza [1] or Pasta [9] : ")
-    (defvar *order-type* (parse-integer (read-line)))
+    (handler-case (progn (defvar *order-type* (parse-integer (read-line))) )
+    (t(exception) (format t "Error Occured!! ~a~%" exception) (values 0 exception)(runner)))
     (print "Order Quantity : ")
     (defvar *order-qty* (read))
     (make-order *order-type* *order-qty*)
