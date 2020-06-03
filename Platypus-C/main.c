@@ -4,6 +4,7 @@
 #include <strings.h>
 #include "headers.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 //Main Function
 int main(int argc, size_t *argv[])
@@ -37,6 +38,7 @@ int main(int argc, size_t *argv[])
     char keepOrderAlive="n";
     char keepSystemAlive="n";
 
+
 /*-------------------------------------Main Loop [System Life-cycle]-------------------------------------*/
     do{
         //Print Log
@@ -64,41 +66,62 @@ int main(int argc, size_t *argv[])
             //Type of order
             int orderTypeIn;
             struct ItemMetaData orderTypeMetaData;
-            printf("Order Type - Pizza [1]Pasta [9] :");
-            scanf("%d", &orderTypeIn);
+
+
+            do {
+            printf("Order Type - Pizza [1]Pasta [9] : ");
+            if(!scanf("%*c%d", &orderTypeIn)){
+                printf("\n<-[Platypus]->Order Type cannot be a non numerical character!!\n");
+                continue;
+            }
             if (orderTypeIn == 1){
-                printPizzaLogo();
+                //printPizzaLogo();
                 orderTypeMetaData = pizza;
+                break;
             }
             else if (orderTypeIn == 9){
-                printPastaLogo();
+                //printPastaLogo();
                 orderTypeMetaData = pasta;
+                break;
             }
             else{
-                printf("\n<-[Platypus]->Order Type cannot be a non numerical character!!");
-                printf("\n<-[Platypus]->Invalid Order Type!! EXITING ON FAILURE!! \n");
+
+
+                printf("\n<-[Platypus]->Invalid Order Type!! \n");
                 orderTypeIn=0;
                 orderTypeMetaData=misc_NULL;
-                exit(EXIT_FAILURE);
+                continue;
             }
+
+            } while (true);
+
+
 
             //Order Quantity
             int orderQty;
+
+            do {
             printf("Order Quantity :");
-
-            scanf("%d", &orderQty);
-            if (orderQty == NULL){
-                    orderQty=0;
-
+            if (!scanf("%*c%d", &orderQty)){
+                printf("\n<-[Platypus]->Invalid Order Quantity!! \n");
+                continue;
             }
+            else
+                break;
+            } while(true);
 
             //Process Order
             orderArray[orderIndex] = makeOrder(orderTypeMetaData, thisOrderId, orderQty);
             orderIndex++;
             //Print Counters
             printf("Order Count : %d ", orderIndex);
+            do{
             printf("Add another Item to this order - %s [Y/N]? : " , &thisOrderId);
-            scanf("%s", &keepOrderAlive);
+            scanf("%*c%s", &keepOrderAlive);
+            if (tolower(keepOrderAlive) == 'y' || tolower(keepOrderAlive) == 'n')
+                break;
+            } while(true);
+
 
         } while (tolower(keepOrderAlive) == 'y' );
 
@@ -121,8 +144,12 @@ int main(int argc, size_t *argv[])
             }
             //free(orderArray);
             printReciept(&thisOrderId,pizzaQty,pizzaAmount,pastaQty,pastaAmount,40);
+            do{
             printf("Keep the System UP [Y/N]: ");
-            scanf("%s", &keepSystemAlive);
+            scanf("%*c%s", &keepSystemAlive);
+            if (tolower(keepSystemAlive) == 'y' || tolower(keepSystemAlive) == 'n')
+                break;
+            } while(true);
     } while (tolower(keepSystemAlive) == 'y');
     exit(EXIT_SUCCESS);
     return 0;
