@@ -1,3 +1,4 @@
+;;Find this Repo @ https://github.com/krishanthisera/platypus.git
 ;; Each item may only have one go for an order. Pizza or Pasta or Pizza and Pasta. To add another Item to order Needs to create another order
 
 ;;Parent Class definition
@@ -153,6 +154,7 @@
     ;;Un-bounding the variables
     (makunbound '*order-type*)
     (makunbound '*order-qty*)
+
     ;;Initiating Pizza and Order Flags
     (defvar *is-pizza* 0)
     (defvar *is-pasta* 0)
@@ -160,8 +162,10 @@
     (print "Order Type Pizza [1] or Pasta [9] : ")
     (handler-case (progn (defvar *order-type* (parse-integer (read-line))) )
     (t(exception) (format t "Error Occured!! ~a~%" exception) (values 0 exception)(runner)))
+
     (print "Order Quantity : ")
-    (defvar *order-qty* (read))
+    (handler-case (progn (defvar *order-qty* (parse-integer (read-line))) )
+    (t(exception) (format t "Error Occured!! ~a~%" exception) (values 0 exception)(runner)))
     (make-order *order-type* *order-qty*)
 )
 
